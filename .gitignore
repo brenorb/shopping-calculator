@@ -1,0 +1,120 @@
+# Gradle files
+.gradle/
+build/
+
+# Local configuration files
+local.properties
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Keystore files
+*.jks
+*.keystore
+
+# NDK files
+.externalNativeBuild/
+obj/
+libs/
+
+# Google services
+google-services.json
+
+# Lint
+lint/
+
+# Log files
+*.log
+
+# Test results
+test-results/
+.cxx/
+.DS_Store
+
+# Captures
+captures/
+output.json
+
+# Misc
+.cxx/
+*.apk
+*.ap_
+*.aab
+*.app
+*.jar
+*.so
+*.swp
+*~
+.externalNativeBuild
+.cxx
+.idea
+*.iml
+.project
+.classpath
+.settings
+*~
+*.swp
+*.lock
+*.keystore
+*signing.properties
+*.cer
+*.crt
+*.pem
+*.key
+.DS_Store
+*.hprof
+*.a
+*.out
+*.o
+*.obj
+*.tmp
+*.dump
+*.gcda
+*.gcno
+*.gcov
+coverage.ec
+coverage.em
+*.class
+*.dex
+*.pid
+*.log
+local.properties
+/build
+/.gradle
+/app/build
+/app/bin
+/app/gen
+*.class
+*.dex
+*.apk
+*.ap_
+*.dex
+*.class
+*.lock
+*.hprof
+*.jar
+!gradle-wrapper.jar
+*.pid
+*.log
+*.swp
+*~
+.DS_Store
+gen/
+bin/
+out/
+build/
+.gradle/
+.idea/
+captures/
+.externalNativeBuild/
+local.properties
+signing.properties
+release.keystore
+debug.keystore
+*.jks
+
+.specstory/
+.cursorindexingignore
