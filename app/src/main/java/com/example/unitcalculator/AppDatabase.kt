@@ -8,6 +8,11 @@ import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import java.util.Date
 
+/**
+ * Room database for storing calculation history.
+ *
+ * Uses singleton pattern to ensure single database instance.
+ */
 @Database(entities = [Calculation::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
@@ -17,6 +22,10 @@ abstract class AppDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
+        /**
+         * Gets or creates the database instance.
+         * Thread-safe via synchronized block.
+         */
         fun getDatabase(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
@@ -31,6 +40,10 @@ abstract class AppDatabase : RoomDatabase() {
     }
 }
 
+/**
+ * Type converters for Room to handle Date objects.
+ * Converts between Date and Long (timestamp in milliseconds).
+ */
 class Converters {
     @TypeConverter
     fun fromTimestamp(value: Long?): Date? {

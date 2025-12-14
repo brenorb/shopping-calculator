@@ -1,0 +1,11 @@
+---
+alwaysApply: true
+---
+## Tech Stack & Architecture
+
+- **Language**: Kotlin (Android standard, concise, null-safe)
+- **UI**: Jetpack Compose (modern declarative UI)
+- **Database**: Room (SQLite wrapper for local storage)
+- **Architecture**: MVVM with Android Architecture Components
+- **Min SDK**: API 26 (Android 8.0) for broad compatibility
+- **Build**: Gradle with Kotlin DSL

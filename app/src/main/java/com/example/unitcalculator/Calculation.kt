@@ -4,6 +4,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.Date
 
+/**
+ * Data model representing a single price calculation.
+ *
+ * Stored in Room database to maintain calculation history.
+ */
 @Entity(tableName = "calculations")
 data class Calculation(
     @PrimaryKey(autoGenerate = true)
@@ -12,6 +17,6 @@ data class Calculation(
     val price: Double,
     val quantity: Double,
     val unit: String,
-    val perUnitPrice: Double,
+    val perUnitPrice: Double,  // Calculated price per base unit
     val timestamp: Date = Date()
 )

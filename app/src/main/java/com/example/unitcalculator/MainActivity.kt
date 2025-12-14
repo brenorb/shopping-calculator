@@ -12,6 +12,14 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
 import java.util.Date
 
+/**
+ * Main activity for the Unit Price Calculator app.
+ * 
+ * Provides UI for:
+ * - Entering item details (name, price, quantity, unit)
+ * - Calculating per-unit prices
+ * - Viewing calculation history with timestamps
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var itemName: EditText
@@ -35,23 +43,28 @@ class MainActivity : AppCompatActivity() {
         calculateButton = findViewById(R.id.calculateButton)
         historyList = findViewById(R.id.historyList)
 
+        // Set up unit spinner with all supported units
         val units = arrayOf("g", "kg", "oz", "lb", "ml", "l", "fl oz", "gal", "count")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, units)
         unitSpinner.adapter = adapter
 
+        // Set up RecyclerView for calculation history
         historyAdapter = HistoryAdapter()
         historyList.adapter = historyAdapter
         historyList.layoutManager = LinearLayoutManager(this)
 
+        // Initialize database
         val db = AppDatabase.getDatabase(this)
         calculationDao = db.calculationDao()
 
+        // Observe calculation history from database
         lifecycleScope.launch {
             calculationDao.getAll().collect { calculations ->
                 historyAdapter.submitList(calculations)
             }
         }
 
+        // Handle calculate button click
         calculateButton.setOnClickListener {
             val name = itemName.text.toString()
             val priceValue = price.text.toString().toDoubleOrNull()
@@ -70,6 +83,7 @@ class MainActivity : AppCompatActivity() {
                     timestamp = Date()
                 )
 
+                // Save to database (history auto-updates via Flow)
                 lifecycleScope.launch {
                     calculationDao.insert(calculation)
                 }
