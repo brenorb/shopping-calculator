@@ -14,8 +14,9 @@ A local-only Android app for calculating per-unit prices while shopping. Compare
 ### Prerequisites
 
 - Android Studio Hedgehog or later
-- Android SDK 24+ (Android 7.0)
-- Gradle 8.0+
+- JDK 17
+- Android SDK Platform 33 (the app supports Android 7.0 / API 24 and newer)
+- Gradle 8.8, downloaded by the included wrapper
 
 ### Build & Run
 
